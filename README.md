@@ -4,7 +4,7 @@ tutorial... just my notes, questions, diagrams and jokes ( to hide my tears ).
 
 ## Why?
 Because I like writing stuff down. Plus, I think my notes are high key slay, and if they save someone a few tears over a Jacobian Matrix, that's a major win. To whoever's reading this: if you want to throw 
-your laptop across the room- please don't. you got this. Not scared. 
+your laptop across the room- please don't. You got this. Not scared. 
 
 ## What's here?
 - **notes/** - Breakdowns of lectures, concepts and diagrams in my own words. ( Fair warning: my commentary is in places... colorful. )
