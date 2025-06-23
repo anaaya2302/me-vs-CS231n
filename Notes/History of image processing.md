@@ -12,7 +12,7 @@ This is mostly facts... Nothing too crazy's gonna happen here. But... I'm sure y
 - **MIT - 1966**: This was a summer project that tried to solve vision. <- I'm not joking, ONE summer ( They failed at that but learnt a lot so... screw around and find out, ig ) ->
 ## The 70s 
 - **David Marr - 1970**: wrote a book on vision. Proposed an algorithm that started with edge detection, pieced together surfaces and layers and then reconstructed a 3d model. <- Philosophy being: Everything can be represented with very simple geometric shapes. Valid if you think about it... That's what artists do on a preliminary sketch->
-- **Seppo Linnainmaa - 1970**: The very same year, The modern version of backprapogation was created.
+- **Seppo Linnainmaa - 1970**: The very same year, The modern version of backprapogation was created. <-Controversial take: Werbos applied it to neural nets in 1981, but no one listened. Rumelhart and Hinton saw the potential and got it to the mainstream. They were the kids that said your joke, just louder and the whole class laughed ->
 ## The 80s
 - **Kunihiko Fukushima - 1980** : The Neocognitron. Like a CNN, but without backprop and with hardcoded layers.
 - This marked the beginning of the 'ai winter'. Basically people lost hope in the field, but it came back stronger than a 90s trend.
