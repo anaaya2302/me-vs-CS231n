@@ -44,5 +44,23 @@ W and b are the variables under our control. To "optimise" a linear classifier w
 Note that the linear classifier can only classify linearly separable data.
 
 ### Geometrical intuition
+<p align="center"> <img src="diagrams/linear_classifier_diagram.jpg" alt="Classifier diagram" width="70%"/> </p>  
+In the above cartesian plane, we may assume that the x and y axes are representing some abstract quantity ( ik that's vague but we'll run with it for now ) based on which the classifier is plotting the image vectors. ( Often one might see images represented as points. Those points are the end of the image vector that starts at the origin. )<br><br> 
+
+We wish to classify the green vectors as positive and the red ones are negative.  
+
+The yellow arrow represents the ideal weight vector for classifying the green class. It points in the direction of highest concentration of the green vectors and is of their most common magnitude. The yellow line, the linear decision boundary, represents the tipping point of the decision. It forms a 90 degree angle with our ideal weight vector.  
+
+A vector lying exactly on the boundary ( perpendicular to the weight vector ) yields a dot product Wxcos(θ) of zero and belongs to neither class. It is at the threshold for the decision. The dot product for a vector that forms an acute angle with W is positive. The dot product for all obtuse angles, vectors beyond the line, is negative. Keep in mind that the geometric and algebraic definitions of a dot product are equivalent.  
+
+Therefore:  
+Wx = 0 is the decision boundary  
+Wx > 0 means the class is green  
+Wx < 0 means not green, by implication red.   
+
+<- One important thing to note, is that this line is only capable of saying green and not green, which in our case leaves the only other option red. Unless the vectors for both classes are symmetrically spread out in space, the ideal weight vector for red will not simply be the negative of the green weight vector, but something else entirely. ->  
+
+In higher dimensions, this linear decision boundary will be a hyperplane. ( Trust me, it's pointless to visualise above 3d. In 4d you could imagine the hyperplane as a cube but it doesn't help with much. )<br><br>
+If a hypothetical two pixel image is fed into the classifier without any preprocessing, each axis will simply represent pixel intensity. In a higher dimensions, we end up representing color intensities for each pixel. In later models, such as CNNs, preprocessing and learned feature maps help push the input into more abstract spaces — So each axis represents higher-order features like texture, shape, or ‘dog-ness’ rather than just raw pixel intensities. <- Honestly though, we don't even know what our best models are mapping atp... we just know it works ->
 
 ### Iris setosa and Iris versicolor
