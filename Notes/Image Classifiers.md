@@ -30,3 +30,19 @@ In this manner, a nearest neighbour classifier will compare the test image ( the
 **K-Nearest Neighbour**: Takes a majority vote among K nearest neighbours. If all k nearest neighbours ( images with least distance ) have different classes, we either pick at random or choose the one with the lowest distance.
 [^1]: Cover, T. M., & Hart, P. E. (1967). *Nearest Neighbor Pattern Classification*. [IEEE link](https://isl.stanford.edu/~cover/papers/transIT/0021cove.pdf)
 
+## Linear Classifier
+A linear classifier is a method of classifying an image ( or something else ) using a linear decision boundary. On a 2d plane, this would look like a line separating the plane, each part of the plane representing a different class.
+### Implementation
+Given a flattened input image X \[D × 1], K classes, a weight matrix \[K × D] and a bias vector \[K × 1], a linear classifier would be implemented as follows:
+                                          <p align="center"> f(x, W ,b) = Wx + b </p>
+This reprsents the dot product of column vector X with each row which yields a column vector \[K × 1] to which the bias vector is added. The final output of the classifier is a vector \[K × 1] in which each row represents the score for that class. The class with the highest score (via argmax) is the predicted class. diagram  
+
+<- Sometimes, the weight matrix is a vector of the form \[D × K], so the classifier looks like f(x, W ,b) = Wᵀx + b i.e we transpose the weight matrix ( it works out to be the same just a notation thing ) ->  
+
+W and b are the variables under our control. To "optimise" a linear classifier we must find their ideal values such that the linear classifier classifies correctly.  
+
+Note that the linear classifier can only classify linearly separable data.
+
+### Geometrical intuition
+
+### Iris setosa and Iris versicolor
