@@ -22,7 +22,7 @@ s_j - s_{y_i} + 1 & \text{otherwise}
 \end{cases}
 $$
 
-where sⱼ is the corrrect class and sᵧᵢ is the current incorrect class.  
+where sⱼ is the incorrrect class and sᵧᵢ is the correct class.  
 
 This can also be thought of as a max function:  
 
@@ -32,8 +32,10 @@ $$
 
 This works the same because if the score of the correct class is lesser than the incorrect class, you get a negative number. But, since the minimum possible value of the max is 0, it turns out to be the exact same thing.
 
-<- Even if you sum up over the correct class, it just shifts the loss up by 1, causing no real change. -> 
-<- This is also known as SVM (Support Vector Machine) loss because this is the particular loss function an SVM tries to minimize. A Linear SVM is basically a linear classifier, though the same cannot be said for a non-linear SVM. -> 
+<- Even if you sum up over the correct class, it just shifts the loss up by 1, causing no real change. ->   
+
+<- This is also known as SVM (Support Vector Machine) loss because this is the particular loss function an SVM tries to minimize. A Linear SVM is basically a linear classifier, though the same cannot be said for a non-linear SVM. ->   
+
 <- You should stare at it for a while. You should also test a few random examples to really get a feel for it. ->
 
 
