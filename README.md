@@ -1,6 +1,6 @@
 # me-vs-CS231n
 Hii! This a personal repo documenting my slow descent into madness while going through Stanford's CS231n. ( On hard mode 'cause apparently high schoolers can't officially enroll. crying emoji, crying emoji ). Not a roadmap or a 
-tutorial... just my notes, questions, diagrams and jokes ( to hide my tears ). It's a work in slow progress
+tutorial... just my notes, questions, diagrams and jokes ( to hide my tears ). It's a work in slow progress.
 
 ## Why?
 Because I like writing stuff down. Plus, I think my notes are high key slay, and if they save someone a few tears over a Jacobian Matrix, that's a major win. To whoever's reading this: if you want to throw 
