@@ -36,6 +36,19 @@ This works the same because if the score of the correct class is lesser than the
 
 <- This is also known as SVM (Support Vector Machine) loss because this is the particular loss function an SVM tries to minimize. A Linear SVM is basically a linear classifier, though the same cannot be said for a non-linear SVM. ->   
 
-<- You should stare at it for a while. You should also test a few random examples to really get a feel for it. ->
+<- You should stare at it for a while. You should also test a few random examples to really get a feel for it. ->  
+
+## Negative Log Likelihood Loss
+**Softmax function**: A function which converts raw logits to probabilites. It does this by first exponentiating and then normalising.   
+A softmax function for one particular logit is as follows:  
+
+$$
+p(y = i \mid x) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+$$  
+
+The numerator represents the current logit, and the denominator is the total sum. Therefore, this returns probabilites.  
+We exponentiate to make the difference between logits more pronounced. <- why e then? why not just something like 2? That's because it'll be useful when later, we calculate the derivatives. (the derivative of eˣ is eˣ) -> 
+
+
 
 
