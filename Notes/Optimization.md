@@ -48,13 +48,13 @@ $$
 
 The numerator represents the current logit, and the denominator is the total sum. Therefore, this returns probabilites.  
 We exponentiate to make the difference between logits more pronounced.  
-<- why e then? why not just something like 2? That's because it'll be useful when later, we calculate the derivatives. (the derivative of eˣ is eˣ) -> 
+<- why e then? why not just 2? That's because it'll be useful when later, we calculate the derivatives. (the derivative of eˣ is eˣ) -> 
 
 
 **Negative Log Likelihood Loss**  
 The goal of a loss function is to evaluate the likelihood that our model distributes the data the same as the true model. With a high likelihood returning a low loss and vice versa.  
 
-<- Note that we do not know the true underlying dataset of all the images of the classes that we have. Also note that likelihood and probability are not the same thing. Likelihood is the chance of an underlying model given a set of observations, and probability is the chance of getting a certain observation after an experiment. ->
+<- Note that we do not know the true underlying dataset of all the images of the classes that we have. Also note that likelihood and probability are not the same thing. Likelihood is the chance of an underlying model given a set of observations, and probability is the chance of getting a certain observation after an experiment, given a model. ->
 
 The likelihood of the parameters θ given data (𝑥,𝑦) is equal to the probability assigned to the true label by the model under θ.  
                                                             <p align='center'> OR </p>
