@@ -1,4 +1,4 @@
-** Note: Don't read this if you're unfamiliar with derivatives. I'll add notes about those somewhere here and link them **
+**Note: Don't read this if you're unfamiliar with derivatives. I'll add notes about those somewhere here and link them**
 # The Problem  
 For any model, there will be an ideal set of parameters, which will yield the lowest loss. Those are the parameters we want the model to have. Okay but how do you figure out which parameters those are, out of inifinitely many possbile weights and biases. 
 
