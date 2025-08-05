@@ -2,7 +2,8 @@
 ## The Semantic gap
 To understand the semantic gap, one must ponder the seemingly stupid question- How would you write an algorithm to identify a cat. One might sketch out a shape, but they deform, move, stretch and hide under furniture. No matter what you try to do, you will not be able to explicitly write a hardcoded algorithm for identifying a cat. Or any object for that matter.  
 
-There are so many aspects subject to change. i.e illumination, deformity, occlusion, background clutter, inter-class variations( tabby or siamese ), etc. ( wtf even is a cat )  This is just in the real world... images are just matrices of RGB values — the cat isn’t in the pixels, it’s in our interpretation. <- On a side note, people TRIED to write explicit algorithms... I'm not joking ->  
+There are so many aspects subject to change. i.e illumination, deformity, occlusion, background clutter, inter-class variations (tabby or siamese), etc. (wtf even is a cat)  This is just in the real world... images are just matrices of RGB values — the cat isn’t in the pixels, it’s in our interpretation.  
+<- On a side note, people TRIED to write explicit algorithms... I'm not joking ->  
 
 Therefore, we must ditch this approach entirely. Here, we'll go through two elementary methods of classifying images.
 ## Nearest Neighbour Classifier
@@ -12,7 +13,7 @@ Theoretically, if we had all the image data in the world as our training set, an
 
 One might think about the possible classes as probability distributions and the image to be classified as the observation. Then, since we do not possess infinite data, we must guess which probability distribution the observation belongs to despite incomplete knowledge of the full underlying distribution.  
 
-<- The Nearest Neighbour program is often wrongly attributed to a 1951 paper by Fix and Hodges. They came up with a method for guessing which probability distribution the observation belongs to given an observation. But, the term nearest neighbour and its application in a classification problem was first done by Cover and Hart in 1967 [^1]. They do mention Fix and Hodges approach in their introductory paragraphs, but do not build upon it. And that’s important — because knowing who did what helps us understand how the field actually progressed, not how it’s been summarized over time. ->
+<- The Nearest Neighbour program is often wrongly attributed to a 1951 paper by Fix and Hodges. They came up with a method for guessing which probability distribution the observation belongs to given an observation. But, the term nearest neighbour and its application in a classification problem was first done by Cover and Hart in 1967 [^1]. They do mention Fix and Hodges approach in their introductory paragraphs, but do not build upon it. ->
 
 ### Distance Metrics
 Now, we must address what comparing two images even entails. How does one compare a matrix of RGB values with some way of capturing the intrinsic meaning. Turns out, one doesn't. We use rather silly algorithms for comparing two images. Or rather, calculating their distance. The higher the distance, the more different the images. 
