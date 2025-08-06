@@ -22,6 +22,39 @@ In a single dimension, a gradient is just the derivative. But, as you go to high
 
 **Slope**: The slope is the dot product of a unit vector with the gradient. It basically tells you how changing that one variable will affect the entire loss. Like cutting planes across a 3d landscape. Going from the gradient to the partial derivative.  
 
-Also, in practice, we never calculate the numerical gradient. Instead we use analytical gradient. Yay to really hard calculus. (dw i got you for that as well)
+Also, in practice, we never calculate the numerical gradient. Instead we use analytical gradient. Yay to really hard calculus. (dw i got you for that as well)  
+
+
+The general algorithm for gradient descent is as follows:  
+While True:  
+
+$$
+w_{new} = w_{old} - \alpha \nabla F(w_{old})
+$$
+
+The α represents what we earlier abstracted as "step size". It is the learning rate. The higher the learning rate, the quicker we will descend. But, keeping it really high, we might accidentally go past the global minimum, or just oscillate around meaninglessly. You can think of learning rate as a step size scaling term. It is an exanple of a hyperparameter i.e it doesn't change during training, we pre decide it. 
+
+<- If you're confused as to where the biases went, we usually just incorporate them into the 0th index of the weight vector and make the 0th index of the feature vector equal 1 to prevent scaling. This way, the dot product ends up being the same and we don't need to refer to biases separately. ->
+
+## Stochastic Gradient Descent
+In models, you have like a gazillion parameters to optimize (well not a gazillion but the number is well into billions). So, it's really impractical to calculate the gradient over the entire dataset. To solve this, we take calculate the gradient for only a small random (stochastic) batch of the training data.  
+Well, our neat solution leads to another problem... The gradient isn't exact anymore. You head "down" the loss landscape very inconsistently. Although due to its inherent randomness, SGD helps somewhat in avoiding local minima and saddle points, the problem is still bad enough to cause problems.  
+
+### Momentum 
+Momentum is a neat trick to ensure you keep going in the same general direction.  
+The general algorithm for momentum is:  
+
+<p align="left"> v_x = 0<br>
+While True:<br>
+dx = gradient(x)<br>
+vx = ρ*vx + dx<br>
+weights = weights - vx*α
+</p>
+
+Where dx is the gradient of each neuron with respect to the loss, vx is the momentum term and ρ is the decaying term. We usually set ρ to about 0.9. This way, the gradient doesn't get too big when we add a new term to it each time. The current gradient only affects the momentum term rate by about 10% if the decay rate is 0.9.  
+This way, if you need to change direction, you'll need to keep getting that gradient over and over to make meaningful changes.  
+Also, it prevents you from getting stuck in saddle points and local minima because you keep moving till you're out. 
+
+
 
 
