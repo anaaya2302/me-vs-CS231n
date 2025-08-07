@@ -47,8 +47,8 @@ The general algorithm for momentum is:
 <p align="left"> v_x = 0<br>
 While True:<br>
 dx = gradient(x)<br>
-vx = ρ*vx + dx<br>
-weights = weights - vx*α
+vx = ρ * v_x + dx<br>
+weights = weights - v_x * α
 </p>
 
 Where dx is the gradient of each neuron with respect to the loss (yes, I'm using dx not grad as the variable), vx is the momentum term and ρ is the decaying term. We usually set ρ to about 0.9. This way, the gradient doesn't get too big when we add a new term to it each time. The current gradient only affects the momentum term rate by about 10% if the decay rate is 0.9, the other 90% percent depends on previous derivatives.  
