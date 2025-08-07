@@ -60,10 +60,11 @@ Although momentum is standing on businesss, it still loses out if the loss lands
 ### RMS prop
 This is momentum pro max. So remember how the learning rate makes everything go haywire if too high or too low? An added element to that is: a learning rate may be perfect for some parts of the loss landscape but absoulte trash for others. So, we use alogithms like Root mean squared propagation (RMS prop) to make adaptive learning rates.  
 
-The general algorithm for RMS prop is:
+The general algorithm for RMS prop is:  
+
 moving_avg = 0  
-While True:
-dx = gradient(x)  
+While True:  
+dx = gradient(x)   
 moving_avg = ρ * moving_avg + (1 - ρ) * (dx)²  
 weights = weights - lr * dx / sqrt(moving_avg + E)  
 
