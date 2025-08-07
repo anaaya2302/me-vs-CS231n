@@ -51,14 +51,14 @@ vx = ρ*vx + dx<br>
 weights = weights - vx*α
 </p>
 
-Where dx is the gradient of each neuron with respect to the loss, vx is the momentum term and ρ is the decaying term. We usually set ρ to about 0.9. This way, the gradient doesn't get too big when we add a new term to it each time. The current gradient only affects the momentum term rate by about 10% if the decay rate is 0.9, the other 90% percent depends on previous derivatives.  
+Where dx is the gradient of each neuron with respect to the loss (yes, I'm using dx not grad as the variable), vx is the momentum term and ρ is the decaying term. We usually set ρ to about 0.9. This way, the gradient doesn't get too big when we add a new term to it each time. The current gradient only affects the momentum term rate by about 10% if the decay rate is 0.9, the other 90% percent depends on previous derivatives.  
 
 This way, if you need to change direction, you'll need to keep getting that gradient over and over to make meaningful changes.  
 Also, it prevents you from getting stuck in saddle points and local minima because you keep moving till you're out.  
 Although momentum is standing on businesss, it still loses out if the loss landscape is really funky. Because the learning rate is constant, our step sizes don't adapt to the landscape. 
 
 ### RMS prop
-This is momentum pro max. So remember how the learning rate makes everything go haywire if too high or too low? An added element to that is: a learning rate may be perfect for some parts of the loss landscape but absoulte trash for others. So, we use alogithms like Root mean squared propagation (RMS prop) to make adaptive learning rates.  
+This is momentum pro max. So remember how the learning rate makes everything go haywire if too high or too low? An added element to that is: a learning rate may be perfect for some parts of the loss landscape but absolute trash for others. So, we use algorithms like Root mean squared propagation (RMS prop) to make adaptive learning rates.  
 
 The general algorithm for RMS prop is:  
 
@@ -68,11 +68,13 @@ dx = gradient(x)
 moving_avg = ρ * moving_avg + (1 - ρ) * (dx)²  
 weights = weights - lr * dx / sqrt(moving_avg + E)  
 
+Again, ik it's unconventional but I'm using dx as a variable for the gradient.  
+
 Okay so holy yap time...  
 
 RMS prop maintains an exponential moving average of the square of the gradient. Why exponential moving average? To give more weight to recent values. Because of the decay term, as in momentum, the new data dominates. The (1 - ρ) term ensures it doesn't keep growing and everything sums up nicely to one. Why dx²? Because that makes it big enough to affect the average more, but not so big that it does a hostile takeover. This causes a problem though, we lose directional information (+ve, -ve).  
 
-Now, the last line is where the magic happens. The division of lr * dx by the square root of the moving average. The higher the moving average, the smaller the step size. So in places where the landscape is really steep or volatile, we'll take small steps to provide overshooting. In places where it's flat and boring, the denominator will be smaller and we can take big steps and move fast. This smoothens our descent.  
+Now, the last line is where the magic happens. The division of lr * dx by the square root of the moving average. The higher the moving average, the smaller the step size. So in places where the landscape is really steep or volatile, we'll take small steps to prevent overshooting. In places where it's flat and boring, the denominator will be smaller and we can take big steps and move fast. This smoothens our descent.  
 
 The numerator dx, is the gradient. The cool part is, this gets back our directional information as well. The dx is the most essential part of the whole thing anyways but it's still cool that this makes our signs respawn.  
 
