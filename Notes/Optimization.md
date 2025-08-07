@@ -68,9 +68,14 @@ dx = gradient(x)
 moving_avg = ρ * moving_avg + (1 - ρ) * (dx)²  
 weights = weights - lr * dx / sqrt(moving_avg + E)  
 
-Okay so holy yap time... RMS prop maintains an exponential moving average of the square of the gradient. Why exponential moving average? To give more weight to recent values. Because of the decay term, as in momentum, the new data dominates. The (1 - ρ) term ensures it doesn't keep growing and everything sums up nicely to one. Why dx²? Because that makes it big enough to affect the average more, but not so big that it does a hostile takeover. This causes a problem though, we lose directional information (+ve, -ve).   
+Okay so holy yap time...  
+
+RMS prop maintains an exponential moving average of the square of the gradient. Why exponential moving average? To give more weight to recent values. Because of the decay term, as in momentum, the new data dominates. The (1 - ρ) term ensures it doesn't keep growing and everything sums up nicely to one. Why dx²? Because that makes it big enough to affect the average more, but not so big that it does a hostile takeover. This causes a problem though, we lose directional information (+ve, -ve).  
+
 Now, the last line is where the magic happens. The division of lr * dx by the square root of the moving average. The higher the moving average, the smaller the step size. So in places where the landscape is really steep or volatile, we'll take small steps to provide overshooting. In places where it's flat and boring, the denominator will be smaller and we can take big steps and move fast. This smoothens our descent.  
+
 The numerator dx, is the gradient. The cool part is, this gets back our directional information as well. The dx is the most essential part of the whole thing anyways but it's still cool that this makes our signs respawn.  
+
 Oh, and that lonely E is there to prevent zero division error. And preventing the whole thing from blowing up in places where it's really flat. 
 
 
