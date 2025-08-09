@@ -1,11 +1,11 @@
 **Note: Don't read this if you're unfamiliar with derivatives. I'll add notes about those somewhere here and link them**
 # The Problem  
-For any model, there will be an ideal set of parameters, which will yield the lowest loss. Those are the parameters we want the model to have. Okay but how do you figure out which parameters those are, out of inifinitely many possbile weights and biases. 
+For any model, there will be an ideal set of parameters, which will yield the lowest loss. Those are the parameters we want the model to have. Okay but how do you figure out which parameters those are, out of infinitely many possbile weights and biases. 
 
 Well... you could just guess randomly until it works... but you'd have better luck winning the lottery five times in a row.  
 
 # Gradient Descent
-Assume a model with only one variable subject to change. For a certain value of this variable, the loss is at its absoulte lowest possible value (global minimum). But, you don't know where this is... all you know is your current loss. 
+Assume a model with only one variable subject to change. For a certain value of this variable, the loss is at its absolute lowest possible value (global minimum). But, you don't know where this is... all you know is your current loss. 
 <p align="center"> <img src="diagrams/2d_loss_landscape.jpg" alt="2d loss" width="70%"/> </p> 
 
 Assume we start off at point c. We don't know what the curve looks like at any point except c. We need to get to the global minimum. We also know, that to find the slope at any point, we can calculate the derivative. The derivative by definition is the slope of the line tangent to the curve at that point. So, to go "down" i.e to minimize the loss, we must take a "step" in the direction negative to the gradient.  
@@ -18,7 +18,7 @@ To prevent this, and ensure we are truly at the global minimum, we employ variou
 There's a lot of analogies to explain gradient descent. Ball rolling down a hill or blind main trying to find the path by touching the ground. Me, I've never been one for analogies in maths, but if it helps you get the concept better, go for it.
 
 ## Gradient 
-In a single dimension, a gradient is just the derivative. But, as you go to higher dimensions, more variables affect your loss. In 3 dimensions, you need to change two variables simultaneously to achieve the optimal loss. Don't visualise beyond that. But, to convey "direction" in these high dimensional spaces, we use a vector of partial derivativves which we call the gradient.  
+In a single dimension, a gradient is just the derivative. But, as you go to higher dimensions, more variables affect your loss. In 3 dimensions, you need to change two variables simultaneously to achieve the optimal loss. Don't visualise beyond that. But, to convey "direction" in these high dimensional spaces, we use a vector of partial derivatives which we call the gradient.  
 
 **Slope**: The slope is a directional derivative. At any point on the landscape, the slope will tell you the rate of change of the function in that direction. To calculate the slope, we take the dot product of the gradient with a unit vector which points in that direction.  
 
@@ -32,7 +32,7 @@ $$
 w_{new} = w_{old} - \alpha \nabla F(w_{old})
 $$
 
-The α represents what we earlier abstracted as "step size". It is the learning rate. The higher the learning rate, the quicker we will descend. But, if we keep it really high, we might accidentally go past the global minimum, or just oscillate around meaninglessly. Too low, and your model will learn after gta 6. You can think of learning rate as a step size scaling term. It is an exanple of a hyperparameter i.e it doesn't change during training, we pre decide it. 
+The α represents what we earlier abstracted as "step size". It is the learning rate. The higher the learning rate, the quicker we will descend. But, if we keep it really high, we might accidentally go past the global minimum, or just oscillate around meaninglessly. Too low, and your model will learn after gta 6. You can think of learning rate as a step size scaling term. It is an example of a hyperparameter i.e it doesn't change during training, we pre decide it. 
 
 <- If you're confused as to where the biases went, we usually just incorporate them into the 0th index of the weight vector and make the 0th index of the feature vector equal 1 to prevent scaling. This way, the dot product ends up being the same and we don't need to refer to biases separately. ->
 
@@ -55,7 +55,7 @@ Where dx is the gradient of each neuron with respect to the loss (yes, I'm using
 
 This way, if you need to change direction, you'll need to keep getting that gradient over and over to make meaningful changes.  
 Also, it prevents you from getting stuck in saddle points and local minima because you keep moving till you're out.  
-Although momentum is standing on businesss, it still loses out if the loss landscape is really funky. Because the learning rate is constant, our step sizes don't adapt to the landscape. 
+Although momentum is standing on business, it still loses out if the loss landscape is really funky. Because the learning rate is constant, our step sizes don't adapt to the landscape. 
 
 ### RMS prop
 This is momentum pro max. So remember how the learning rate makes everything go haywire if too high or too low? An added element to that is: a learning rate may be perfect for some parts of the loss landscape but absolute trash for others. So, we use algorithms like Root mean squared propagation (RMS prop) to make adaptive learning rates.  
